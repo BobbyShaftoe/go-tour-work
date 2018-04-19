@@ -1,27 +1,28 @@
 package main
 
 import (
-	_ "fmt"
-	_ "math/cmplx"
-	"math/cmplx"
 	"fmt"
+	_ "fmt"
 	"math"
+	"math/cmplx"
+	_ "math/cmplx"
 )
 
 var (
-	ToBe	bool		= false
-	MaxInt	uint64		= 1<<64 - 1
-	z		complex128	= cmplx.Sqrt(-5 + 12i)
-	radius	float64		= 10.55
+	ToBe   bool       = false
+	MaxInt uint64     = 1<<64 - 1
+	z      complex128 = cmplx.Sqrt(-5 + 12i)
+	radius float64    = 10.55
 )
 
 const (
-	Pi 		= 3.141592
-	Big  	= 1 << 100
-	Small 	= Big >> 99
-	Little	= 2 << 15
+	Pi     = 3.141592
+	Big    = 1 << 100
+	Small  = Big >> 99
+	Little = 2 << 15
 )
-func needInt(x int) int { return x*10 + 1}
+
+func needInt(x int) int { return x*10 + 1 }
 
 func needFloat(x float64) float64 {
 	return x * 0.1
@@ -41,13 +42,13 @@ func main() {
 	fmt.Printf("Type: %T Value: %v\n", z, z)
 
 	// Convert types
-	var x, y int 	= 3, 101
-	var g float64 	= math.Sqrt(float64(x*x + y*y))
-	var r uint 		= uint(g)
+	var x, y int = 3, 101
+	var g float64 = math.Sqrt(float64(x*x + y*y))
+	var r uint = uint(g)
 
 	fmt.Println(x, y, r)
 
-	fmt.Println(Pi * radius*radius)
+	fmt.Println(Pi * radius * radius)
 
 	fmt.Println(math.Sqrt(Little))
 
@@ -55,4 +56,3 @@ func main() {
 	fmt.Println(needFloat(Small))
 	fmt.Println(needFloat(Big))
 }
-

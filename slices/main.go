@@ -1,8 +1,8 @@
 package main
 
 import (
-	_ "fmt"
 	"fmt"
+	_ "fmt"
 	"strings"
 )
 
@@ -43,18 +43,18 @@ func main() {
 	fmt.Printf("len=%d cap=%d %v\n", len(c), cap(c), c)
 
 	// create dynamically-sized arrays with make
-	d := make([]int, 0, 5)	// len(d)=0, cap(d)=5
+	d := make([]int, 0, 5) // len(d)=0, cap(d)=5
 	printSlice("d", d)
 
-    d = d[:cap(d)]			// change length, len(d)=5, cap(d)=5
+	d = d[:cap(d)] // change length, len(d)=5, cap(d)=5
 	printSlice("d", d)
 
-    // append to slice
-    d = append(d, 9, 8, 7)
-    fmt.Println("Append to slice")
-    printSlice("d", d)
+	// append to slice
+	d = append(d, 9, 8, 7)
+	fmt.Println("Append to slice")
+	printSlice("d", d)
 
-    // iterate over a slice
+	// iterate over a slice
 	e := d[5:9]
 	for i, v := range e {
 		fmt.Printf("%d: 2*%d = %d\n", i, v, 2*v)
@@ -66,23 +66,17 @@ func main() {
 	}
 
 	fmt.Println("Tic Tac Toe - Slices of Slices")
-    ticTacToe("O")
+	ticTacToe("O")
 }
-
-
-
 
 func printSlice(s string, x []int) {
 	fmt.Printf("%s len=%d cap=%d %v\n",
 		s, len(x), cap(x), x)
 }
 
-
-
-
 // Slices of slices (multidimensional array)
-func ticTacToe(x string){
-	board := [][]string {
+func ticTacToe(x string) {
+	board := [][]string{
 		[]string{"_", "_", "_"},
 		[]string{"_", "_", "_"},
 		[]string{"_", "_", "_"},
@@ -100,12 +94,6 @@ func ticTacToe(x string){
 	fmt.Printf("\n%s\n%s\n%s\n", board[0], board[1], board[2])
 
 }
-
-
-
-
-
-
 
 // import "golang.org/x/tour/pic"
 //

@@ -1,8 +1,8 @@
 package main
 
 import (
-	_ "fmt"
 	"fmt"
+	_ "fmt"
 )
 
 type Vertex struct {
@@ -33,4 +33,3 @@ func main() {
 	fmt.Println(*p1)
 
 }
-

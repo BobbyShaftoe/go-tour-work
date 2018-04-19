@@ -1,12 +1,12 @@
 package main
 
 import (
-	_ "fmt"
-	_ "math"
-	_ "strings"
-	"math"
 	"fmt"
+	_ "fmt"
+	"math"
+	_ "math"
 	"strings"
+	_ "strings"
 )
 
 // Go does not have classes. However, you can define "methods on types"
@@ -22,7 +22,6 @@ type Names struct {
 
 type MyFloat float64
 
-
 // The receiver appears in its own argument list between the func keyword and the method name.
 // In this example, the 'SomeMethod()' method has a receiver of type Vertex named 'v'
 
@@ -34,7 +33,7 @@ func (v Vertex) SomeMethod() float64 {
 // in other words 'thisMethod()' has receiver of type Vertex named 'n'
 
 func (n Names) thisMethod() string {
-	return strings.Title(n.first + " " +  n.last)
+	return strings.Title(n.first + " " + n.last)
 }
 
 // A method can also be declared on non-struct types
@@ -52,17 +51,16 @@ func (f MyFloat) Absolute() float64 {
 // In this example the Scale() method is defined on *Vertex and directly changes the Vertex value defined in main()
 
 func (v *Vertex) Scale(f float64) {
-  v.X = v.X * f
-  v.Y = v.Y / f
+	v.X = v.X * f
+	v.Y = v.Y / f
 }
 
- // Method with value receiver
+// Method with value receiver
 func (v Vertex) ScaleIt(f float64) float64 {
 	v.X = v.X * f
 	v.Y = v.Y / f
 	return v.X / v.Y * f
 }
-
 
 func main() {
 
@@ -71,7 +69,7 @@ func main() {
 	fmt.Println(v.SomeMethod())
 
 	// 'n' is Names struct attached to thisMethod() method
-	n := Names{ "nick", "sinclair"}
+	n := Names{"nick", "sinclair"}
 	fmt.Println(n.thisMethod())
 
 	// Absolute() method
@@ -92,17 +90,16 @@ func main() {
 	g := Vertex{6, 24}
 	g.Scale(2)
 	fmt.Println(g)
-    // (g, &h) are same things for the method Scale() with pointer receiver
-    h := &g
-    h.Scale(10)
-    fmt.Println(g)
+	// (g, &h) are same things for the method Scale() with pointer receiver
+	h := &g
+	h.Scale(10)
+	fmt.Println(g)
 
 	// // Methods with value receivers "(v Vertex)" take value or pointer as receiver, "(*i).Scale()" by default
-    // (i, &j) are same things for the method Scale() with value receiver
-    i := Vertex{2, 1}
-    j := &i
-    fmt.Println(i.ScaleIt(10))
-    fmt.Println(j.ScaleIt(0.5))
+	// (i, &j) are same things for the method Scale() with value receiver
+	i := Vertex{2, 1}
+	j := &i
+	fmt.Println(i.ScaleIt(10))
+	fmt.Println(j.ScaleIt(0.5))
 
 }
-

@@ -1,12 +1,11 @@
 package main
 
 import (
-	_ "fmt"
-	_ "math"
-	"math"
 	"fmt"
+	_ "fmt"
+	"math"
+	_ "math"
 )
-
 
 // Functions are values too. They can be passed around just like other values.
 // Function values may be used as function arguments and return values.
@@ -27,29 +26,24 @@ func adder() func(int) int {
 	}
 }
 
-
 func main() {
 	hypot := func(x, y float64) float64 {
 		return math.Sqrt(x*x + y*y)
 	}
-	fmt.Println(hypot(5,12))
+	fmt.Println(hypot(5, 12))
 
 	fmt.Println(compute(hypot))
 	fmt.Println(compute(math.Pow))
 
-
-    pos, neg := adder(), adder()
-    for i := 0; i < 10; i++ {
-    	fmt.Println(
-    		pos(i),
-    		neg(-2*i),
+	pos, neg := adder(), adder()
+	for i := 0; i < 10; i++ {
+		fmt.Println(
+			pos(i),
+			neg(-2*i),
 		)
 	}
 
 }
-
-
-
 
 // fibonacci is a function that returns
 // a function that returns an int.

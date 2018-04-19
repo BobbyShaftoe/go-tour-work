@@ -1,10 +1,10 @@
 package main
 
 import (
-	_ "fmt"
-	_ "math"
-	"math"
 	"fmt"
+	_ "fmt"
+	"math"
+	_ "math"
 )
 
 // An "interface type" is defined as a set of "method signatures"
@@ -17,6 +17,7 @@ type MyFloat float64
 type Vertex struct {
 	X, Y float64
 }
+
 // Type "MyFloat" implements the interface "MathUtil" in "Abs()" and "AreaCircle()" methods
 // Type "Vertex" implements the interface "TrigUtil" in "EuclidDistance()" method
 
@@ -33,7 +34,6 @@ type TrigUtil interface {
 	EuclidDistance() float64
 }
 
-
 // METHODS //
 
 // This "EuclidDistance()" method in "MathUtil" interface requires *Vertex type
@@ -42,18 +42,18 @@ func (v *Vertex) EuclidDistance() float64 {
 }
 
 // This "Abs()" method in "MathUtil" interface requires float64 type
-func(f MyFloat) Abs() float64 {
+func (f MyFloat) Abs() float64 {
 	if f < 0 {
 		return float64(-f)
 	}
 	return float64(f)
 }
+
 // This "AreaCircle()" method in "MathUtil" interface requires float64 type
-func(f MyFloat) AreaCircle() float64 {
+func (f MyFloat) AreaCircle() float64 {
 	area := math.Pi * math.Pow(float64(f), 2)
 	return float64(area)
 }
-
 
 // MAIN //
 
@@ -67,22 +67,11 @@ func main() {
 
 	// The "TrigUtil" interface is declared with value of "&Vertex" type expected by it's method
 	var x, y float64 = 55, 66
-	var b TrigUtil = &Vertex{x,y}
+	var b TrigUtil = &Vertex{x, y}
 	// Call "TrigUtil" method from "TrigUtil" interface
 	fmt.Println("Euclidean distance between points", x, "and", y, "is:", b.EuclidDistance())
 
 }
-
-
-
-
-
-
-
-
-
-
-
 
 // FUNDAMENTAL EXAMPLE //
 
@@ -114,5 +103,3 @@ func main() {
 // 		i.M()
 // 		i.N()
 // 	}
-
-

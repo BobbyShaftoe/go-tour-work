@@ -1,8 +1,8 @@
 package main
 
 import (
-	_ "fmt"
 	"fmt"
+	_ "fmt"
 )
 
 type Vertex struct {
@@ -10,7 +10,6 @@ type Vertex struct {
 }
 
 var m map[string]Vertex
-
 
 // Map literal - keys are required
 var n = map[string]Vertex{
@@ -25,7 +24,7 @@ var n = map[string]Vertex{
 // If the top-level type is just a type name, you can omit it from the elements of the literal
 var o = map[string]Vertex{
 	"Bell Labs": {40.68433, -74.39967},
-	"Google": {37.42202, -122.08408},
+	"Google":    {37.42202, -122.08408},
 }
 
 var p = map[int]Vertex{
@@ -33,8 +32,7 @@ var p = map[int]Vertex{
 	2: {37.42202, -122.08408},
 }
 
-
-func main()() {
+func main() {
 	m = make(map[string]Vertex)
 	m["Bell Labs"] = Vertex{
 		40.68433, -74.39967,
@@ -57,11 +55,6 @@ func main()() {
 	v, ok := q["Answer"]
 	fmt.Println("The value:", v, "Present?", ok)
 }
-
-
-
-
-
 
 // import (
 // //	"golang.org/x/tour/wc"
